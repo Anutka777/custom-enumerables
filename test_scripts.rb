@@ -9,7 +9,7 @@ puts 'Good call:'
 example.my_each { |item| puts item }
 puts 'And now witohout block:'
 example.my_each
-puts ''
+puts 'Original #each:'
 example.each { |item| puts item }
 puts '--------------------'
 
@@ -22,6 +22,7 @@ puts '--------------------'
 puts 'my_select vs select'
 p(example.my_select { |item| item < 3 })
 puts ''
+p example.my_select
 p(example.select { |item| item < 3 })
 puts '--------------------'
 

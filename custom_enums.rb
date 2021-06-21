@@ -2,8 +2,13 @@
 
 # I'll add to the existing module Enumerable
 module Enumerable
+  def no_block_given
+    puts 'WARNINNG! No block was given. Generic enumerator was returned.'
+    self.to_enum
+  end
+
   def my_each
-    return puts 'ERROR: no block was given' unless block_given?
+    return no_block_given unless block_given?
 
     # No .each allowed!
     for item in self
@@ -12,7 +17,7 @@ module Enumerable
   end
 
   def my_each_with_index
-    return puts 'ERROR: no block was given' unless block_given?
+    return no_block_given unless block_given?
 
     index = 0
     # No .each allowed!
@@ -23,7 +28,7 @@ module Enumerable
   end
 
   def my_select
-    return puts 'ERROR: no block was given' unless block_given?
+    return no_block_given unless block_given?
 
     data = []
     my_each { |item| data.push item if yield item }
@@ -31,7 +36,7 @@ module Enumerable
   end
 
   def my_all?
-    return puts 'ERROR: no block was given' unless block_given?
+    return no_block_given unless block_given?
 
     my_each do |item|
       return false unless yield item
@@ -40,7 +45,7 @@ module Enumerable
   end
 
   def my_any?
-    return puts 'ERROR: no block was given' unless block_given?
+    return no_block_given unless block_given?
 
     my_each do |item|
       return true if yield item
@@ -49,7 +54,7 @@ module Enumerable
   end
 
   def my_none?
-    return puts 'ERROR: no block was given' unless block_given?
+    return no_block_given unless block_given?
 
     my_each do |item|
       return false if yield item
