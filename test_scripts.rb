@@ -51,3 +51,15 @@ puts ''
 p(example.none? { |item| item < 3 })
 p(example.none? { |item| item > 6 })
 puts '--------------------'
+
+puts 'my_count? vs count'
+p(example.my_count { |item| item < 4 })
+p(example.my_count { |item| item > 6 })
+p example.my_count
+p example.my_count(2)
+puts ''
+p(example.count { |item| item < 4 })
+p(example.count { |item| item > 6 })
+p example.count
+p example.count(2)
+puts '--------------------'

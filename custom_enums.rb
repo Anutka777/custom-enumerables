@@ -61,4 +61,21 @@ module Enumerable
     end
     true
   end
+
+  def my_count(obj = nil)
+    counter = 0
+    if block_given?
+      my_each do |item|
+        counter += 1 if yield item
+      end
+    elsif obj.nil?
+      counter = self.length
+    else
+      my_each do |item|
+        counter += 1 if item == obj
+      end
+
+    end
+    counter
+  end
 end
