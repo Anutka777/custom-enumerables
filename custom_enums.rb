@@ -78,4 +78,14 @@ module Enumerable
     end
     counter
   end
+
+  def my_map
+    return no_block_given unless block_given?
+
+    result = []
+    my_each do |item|
+      result << yield(item)
+    end
+    result
+  end
 end

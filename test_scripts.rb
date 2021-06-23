@@ -63,3 +63,11 @@ p(example.count { |item| item > 6 })
 p example.count
 p example.count(2)
 puts '--------------------'
+
+puts 'my_map vs map'
+p example.my_map
+puts ''
+p(example.my_map { |item| item * 3 })
+puts ''
+p(example.map { |item| item * 3 })
+puts '--------------------'
