@@ -77,4 +77,6 @@ puts 'my_inject vs inject'
 p(example.my_inject { |sum, item| sum + item })
 puts ''
 p(example.inject { |sum, item| sum + item })
+p([2, 4, 5].inject { |result, item| result * item })
+p multiply_els([2, 4, 5])
 puts '--------------------'

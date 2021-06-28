@@ -94,8 +94,12 @@ module Enumerable
 
     result = self[0]
     self.drop(1).my_each do |item|
-      result = yield(item, result)
+      result = yield(result, item)
     end
     result
   end
+end
+
+def multiply_els(arr)
+  arr.my_inject { |result, item| result * item }
 end
