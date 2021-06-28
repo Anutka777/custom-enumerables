@@ -88,4 +88,14 @@ module Enumerable
     end
     result
   end
+
+  def my_inject
+    return no_block_given unless block_given?
+
+    result = self[0]
+    self.drop(1).my_each do |item|
+      result = yield(item, result)
+    end
+    result
+  end
 end

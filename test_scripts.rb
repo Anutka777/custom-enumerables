@@ -5,6 +5,7 @@ require_relative 'custom_enums'
 example = [1, 2, 3, 4, 5]
 
 puts 'my_each vs each'
+puts 'my_each with args'
 puts 'Good call:'
 example.my_each { |item| puts item }
 puts 'And now witohout block:'
@@ -70,4 +71,10 @@ puts ''
 p(example.my_map { |item| item * 3 })
 puts ''
 p(example.map { |item| item * 3 })
+puts '--------------------'
+
+puts 'my_inject vs inject'
+p(example.my_inject { |sum, item| sum + item })
+puts ''
+p(example.inject { |sum, item| sum + item })
 puts '--------------------'
