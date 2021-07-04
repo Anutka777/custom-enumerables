@@ -4,7 +4,7 @@
 module Enumerable
   def no_block_given
     puts 'WARNINNG! No block was given. Generic enumerator was returned.'
-    self.to_enum
+    to_enum
   end
 
   def my_each
@@ -93,7 +93,7 @@ module Enumerable
     return no_block_given unless block_given?
 
     result = self[0]
-    self.drop(1).my_each do |item|
+    drop(1).my_each do |item|
       result = yield(result, item)
     end
     result
