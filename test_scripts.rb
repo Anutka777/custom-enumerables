@@ -102,6 +102,17 @@ puts 'Original #map: elements * 3'
 puts(example.map { |item| item * 3 })
 puts '--------------------'
 
+puts '#my_map_with_proc takes a proc'
+proc = proc { |item| item + 2 }
+puts example.my_map_with_proc proc
+puts '--------------------'
+
+puts '#my_map_with_proc_or_block takes the same proc'
+puts example.my_map_with_proc_or_block proc
+puts '#my_map_with_proc_or_block takes the same block'
+puts(example.my_map_with_proc_or_block { |item| item + 2 })
+puts '--------------------'
+
 puts 'my_inject vs inject'
 puts '#my_inject: sum of elements'
 puts(example.my_inject { |sum, item| sum + item })
